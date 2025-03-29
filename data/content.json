@@ -1,0 +1,20 @@
+{
+    "heroText": "short description",
+    
+    "about": [
+      "put whatever you want here"
+    ],
+    
+    "contact": [
+      {
+        "type": "Email",
+        "value": "info@noumenainstitute.com"
+      },
+      {
+        "type": "X",
+        "value": "@noumena_noumeno"
+      }
+    ],
+    
+    "footerText": "© 2025 The Noumena Institute. All rights reserved."
+  }

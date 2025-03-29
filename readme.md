@@ -1,0 +1,3 @@
+### simple NI site
+
+i've put this together to demonstrate how you can use and host a site cheaply and easily; i've made this site very simple to modify -- look at the `data` folder and there are a handful of `.json` files. You can see the simple data structure of key-value pairs -- if you edit these files, they will deploy to github pages and update the site. in this way, you can make modifications and udpates to the site without having to code or manage infrastructure.

@@ -1,0 +1,275 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #bbbbbb;
+    --accent-color: #dddddd;
+    --bg-color: #222222;
+    --text-color: #f4f4f4;
+    --light-gray: #333333;
+    --spacing: 40px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1.2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding: 20px 0;
+    position: relative;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-left: 30px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.hero {
+    background-color: var(--light-gray);
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: normal;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.featured-section, .books-section {
+    padding: var(--spacing) 0;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.book-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.book-image {
+    height: 350px;
+    background-color: var(--light-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-info {
+    padding: 20px;
+}
+
+.book-title {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.book-actions {
+    margin-top: 20px;
+}
+
+.about-section {
+    padding: var(--spacing) 0;
+    background-color: var(--light-gray);
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section {
+    padding: var(--spacing) 0;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.contact-item {
+    margin-bottom: 20px;
+}
+
+.contact-item h3 {
+    margin-bottom: 5px;
+}
+
+footer {
+    padding: 20px 0;
+    background-color: var(--light-gray);
+    text-align: center;
+}
+
+.section {
+    padding: var(--spacing) 0;
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav ul {
+        gap: 15px;
+    }
+    
+    nav li {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
