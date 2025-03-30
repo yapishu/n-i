@@ -54,6 +54,7 @@ function createBookCard(book) {
         </div>
         <div class="book-info">
             <h3 class="book-title">${book.title}</h3>
+            <h5 class="book-author">${book.author}</h3>
             <p>${book.description}</p>
             <div class="book-actions">
                 ${book.buyLink ? `<a href="${book.buyLink}" class="btn" target="_blank">Buy</a>` : ''}
