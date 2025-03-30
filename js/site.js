@@ -9,9 +9,13 @@ async function loadSiteContent() {
         const booksResponse = await fetch('data/books.json');
         const booksData = await booksResponse.json();
         
+        const featuredResponse = await fetch('data/featured-books.json');
+        const featuredBooksData = await featuredResponse.json();
+        
         const contentResponse = await fetch('data/content.json');
         const contentData = await contentResponse.json();
         
+        populateFeaturedBooks(featuredBooksData);
         populateBooks(booksData);
         populateSiteContent(contentData);
         
@@ -20,15 +24,16 @@ async function loadSiteContent() {
     }
 }
 
-function populateBooks(booksData) {
+function populateFeaturedBooks(featuredBooksData) {
     const featuredBooksContainer = document.getElementById('featuredBooks');
-    const featuredBooks = booksData;
     
     featuredBooksContainer.innerHTML = '';
-    featuredBooks.forEach(book => {
+    featuredBooksData.forEach(book => {
         featuredBooksContainer.appendChild(createBookCard(book));
     });
-    
+}
+
+function populateBooks(booksData) {
     const allBooksContainer = document.getElementById('allBooks');
     
     allBooksContainer.innerHTML = '';
@@ -61,8 +66,13 @@ function createBookCard(book) {
 }
 
 function populateSiteContent(contentData) {
-    if (contentData.heroText) {
-        document.getElementById('heroText').textContent = contentData.heroText;
+    if (contentData.main) {
+        if (contentData.main.heroTitle) {
+            document.querySelector('#home .hero h1').textContent = contentData.main.heroTitle;
+        }
+        if (contentData.main.heroText) {
+            document.getElementById('heroText').textContent = contentData.main.heroText;
+        }
     }
     
     if (contentData.about) {
@@ -84,17 +94,22 @@ function populateSiteContent(contentData) {
             const contactItem = document.createElement('div');
             contactItem.className = 'contact-item';
             
+            let valueHtml = item.value;
+
+            if (item.type.toLowerCase() === 'email') {
+                valueHtml = `<a href="mailto:${item.value}">${item.value}</a>`;
+            } else if (item.type.toLowerCase() === 'x') {
+                const handle = item.value.startsWith('@') ? item.value.slice(1) : item.value;
+                valueHtml = `<a href="https://twitter.com/${handle}" target="_blank">@${handle}</a>`;
+            }
+            
             contactItem.innerHTML = `
                 <h3>${item.type}</h3>
-                <p>${item.value}</p>
+                <p>${valueHtml}</p>
             `;
             
             contactContainer.appendChild(contactItem);
         });
-    }
-    
-    if (contentData.footerText) {
-        document.getElementById('footerText').textContent = contentData.footerText;
     }
 }
 

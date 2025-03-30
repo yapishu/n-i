@@ -21,6 +21,11 @@ body {
     line-height: 1.6;
 }
 
+a {
+    color: #fff;
+    font-family: 'SF Mono', 'Roboto Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+}
+
 h1, h2, h3 {
     font-weight: 300;
     letter-spacing: 0.5px;
@@ -100,6 +105,7 @@ nav a:hover, nav a.active {
     font-size: 3rem;
     margin-bottom: 20px;
     line-height: 1.2;
+    font-family: 'SF Mono', 'Roboto Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
 }
 
 .hero p {
@@ -211,7 +217,6 @@ nav a:hover, nav a.active {
 
 .contact-info {
     max-width: 600px;
-    margin: 30px auto;
 }
 
 .contact-item {
@@ -272,4 +277,15 @@ footer {
     .hero h1 {
         font-size: 2rem;
     }
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 5em;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
 }
