@@ -187,8 +187,17 @@ nav a:hover, nav a.active {
 
 .book-title {
     color: var(--primary-color);
+    margin-bottom: 2px;
+    font-family: 'SF Mono', 'Roboto Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+    font-size: 1.3rem;
+}
+
+.book-author {
+    color: var(--primary-color);
     margin-bottom: 10px;
-    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-family: 'SF Mono', 'Roboto Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+    font-size: 1.1rem;
 }
 
 .book-actions {
