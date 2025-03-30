@@ -116,27 +116,31 @@ function populateSiteContent(contentData) {
 function setupNavigation() {
     const navLinks = document.querySelectorAll('.nav-link, .logo, .btn[data-page]');
     const sections = document.querySelectorAll('.section');
-    
+    function showSection(page) {
+        document.querySelectorAll('.nav-link').forEach(navLink => {
+            navLink.classList.toggle('active', navLink.getAttribute('data-page') === page);
+        });
+        sections.forEach(section => {
+            section.classList.toggle('active', section.id === page);
+        });
+    }
+    function navigateTo(page, push = true) {
+        showSection(page);
+        if (push) {
+            history.pushState({ page }, '', `#${page}`);
+        }
+    }
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            
             const page = this.getAttribute('data-page');
-            
-            document.querySelectorAll('.nav-link').forEach(navLink => {
-                navLink.classList.remove('active');
-                if (navLink.getAttribute('data-page') === page) {
-                    navLink.classList.add('active');
-                }
-            });
-            
-            sections.forEach(section => {
-                section.classList.remove('active');
-                if (section.id === page) {
-                    section.classList.add('active');
-                    window.scrollTo(0, 0);
-                }
-            });
+            navigateTo(page);
         });
     });
+    window.addEventListener('popstate', (event) => {
+        const page = (event.state && event.state.page) || location.hash.replace('#', '') || 'home';
+        showSection(page);
+    });
+    const initialPage = location.hash.replace('#', '') || 'home';
+    navigateTo(initialPage, false);
 }
