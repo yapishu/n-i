@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Noumena Institute</title>
+    <title>Noumena Institute</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo" data-page="home">THE NOUMENA INSTITUTE</a>
+            <div class="branding">
+                <a href="/">
+                    <img src="images/spiral-logo.png" alt="Noumena Logo" class="logo-image">
+                    <a href="#" class="logo" data-page="home">NOUMENA INSTITUTE</a>
+                </a>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
@@ -25,18 +30,18 @@
     <section id="home" class="section active">
         <div class="hero">
             <div class="container">
-                <h1>Philosophical Publishing</h1>
-                <p id="heroText">The Noumena Institute is a specialty publisher focused on contemporary philosophical works that explore the boundaries of thought.</p>
+                <h1 id="heroTitle"></h1>
+                <p id="heroText"></p>
                 <div>
-                    <a href="#" class="btn" data-page="books">Explore Books</a>
-                    <a href="#" class="btn btn-outline" data-page="about">About Us</a>
+                    <a href="#" class="btn" data-page="books">Explore catalogue</a>
+                    <a href="#" class="btn btn-outline" data-page="about">About us</a>
                 </div>
             </div>
         </div>
 
         <div class="featured-section">
             <div class="container">
-                <h2>Featured Titles</h2>
+                <h2>Featured titles</h2>
                 <div id="featuredBooks" class="book-grid">
                     <!-- loaded via js -->
                 </div>
@@ -47,9 +52,7 @@
     <!-- Books -->
     <section id="books" class="section">
         <div class="container">
-            <h1>Our Books</h1>
-            <p>Explore our catalog of philosophical works examining contemporary thought.</p>
-            
+            <h1>Catalogue</h1>
             <div id="allBooks" class="book-grid">
                 <!-- loaded via js -->
             </div>
@@ -60,7 +63,7 @@
     <section id="about" class="section">
         <div class="about-section">
             <div class="container">
-                <h1>About The Noumena Institute</h1>
+                <h1>About Noumena Institute</h1>
                 <div class="about-content">
                     <div id="aboutText" class="about-text">
                         <!-- loaded via js -->
@@ -86,7 +89,7 @@
 
     <footer>
         <div class="container">
-            <p id="footerText">© 2025 The Noumena Institute. All rights reserved.</p>
+            <p id="footerText">© 2025 Noumena Institute. All rights reserved.</p>
         </div>
     </footer>
 
